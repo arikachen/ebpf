@@ -35,7 +35,7 @@ type Spec struct {
 	rawTypes   []rawType
 	strings    stringTable
 	types      []Type
-	namedTypes map[string][]namedType
+	namedTypes map[string][]NamedType
 	funcInfos  map[string]extInfo
 	lineInfos  map[string]extInfo
 	coreRelos  map[string]coreRelos
@@ -479,7 +479,7 @@ func (s *Spec) FindType(name string, typ Type) error {
 		}
 
 		// Match against the full name, not just the essential one.
-		if typ.name() != name {
+		if typ.TypeName() != name {
 			continue
 		}
 
